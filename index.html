@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hogwarts students</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Academics</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Campus Events</a>
+                    <div class="dropdown-content">
+                      <a href="#">Quiddich Cup</a>
+                      <a href="#">Excursion to Hogsmeade</a>
+                    </div>
+                  </li>
+                <li><a href="#" id="hack-me">Administration</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <div class="slideContainer">
+            <img class="mySlides" src="assets/slideshow/giammarco-boscaro-xLhKkk2tKkA-unsplash.jpg" alt="photo">
+            <img class="mySlides" src="assets/slideshow/giammarco-boscaro-eWpBNXRHfTI-unsplash.jpg" alt="photo">
+            <img class="mySlides" src="assets/slideshow/giammarco-boscaro-eWpBNXRHfTI-unsplash.jpg" alt="photo">
+          </div>
+
+        <h1>Hogwarts</h1>
+        <h2>School of Witchcraft and Wizardry</h2>
+        <img src="assets/hogwarts-crest.png" alt="hogwarts crest" id="hogwarts-crest">
+
+
+    </header>
+
+    <main>
+        <h3>Student List, class of 1991</h3>
+
+        <div class="filters-container">
+            <div id="filter-container">
+                <img src="assets/misc/gryffindor.png" class="filter" data-action="filter" data-filter="gryff">
+                <img src="assets/misc/hufflepuff.png" class="filter" data-action="filter" data-filter="huffle">
+                <img src="assets/misc/ravenclaw.png" class="filter" data-action="filter" data-filter="raven">
+                <img src="assets/misc/slytherin.png" class="filter" data-action="filter" data-filter="slyth">
+                <br>
+                <img src="assets/misc/girl.png" class="filter small" data-action="filter" data-filter="female">
+                <img src="assets/misc/boy.png" class="filter small" data-action="filter" data-filter="male">
+                <img src="assets/misc/asterisk.png" class="filter small" data-action="filter" data-filter="*">
+            </div>
+            <div id="sort-container">
+                <button class="sort" data-action="sort" data-sort-direction="asc" data-sort="firstName">First name</button>
+                <button class="sort" data-action="sort" data-sort-direction="asc" data-sort="lastName">Last name</button>
+            </div>
+
+            <input type="text" id="search-input" placeholder="Search name">
+
+            <p id="expelled-toggle">Expelled Students</p>
+    </div>
+        <section id="students-here">
+        </section>
+
+        <div class="modal">
+            <div class="modal-content">
+                <p><span class="close-btn">&times;</span></p>
+                <div class="left-modal">
+                    <img src="assets/student_images/abbott_h.png" id="student-img-modal" alt="girl">
+                    <img src="assets/misc/Gryffindor_ClearBG.png" class="house-crest" alt="house" width="100px">
+                </div>
+                <div class="right-modal">
+                    <h4 id="student-name-modal">Student name</h4>
+                    <div class="student-info">
+                        <p id="blood-info">Pure-blood</p>
+                        <img src="https://img.icons8.com/color/48/000000/female.png" id="gender"> <br>
+                    </div>
+                    <div class="member-icons">
+                        <img src="assets/misc/squad.png" alt="squad icon" id="squad-icon" class="hide">
+                        <img src="assets/misc/prefect.png" alt="prefect icon" id="prefect-icon" class="hide">
+                    </div>
+                    
+
+                    <button id="expel">Expel student</button>
+                    <button id="prefect">Make prefect</button>
+                    <button id="squad">Add to squad</button>
+                 </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- templates -->
+    <!-- <template id="info">
+        <div id="student-container">
+            <div class="left">
+                <img src="assets/student_images/abbott_h.png" id="student-img" alt="student">
+            </div>
+            <div class="right">
+                <p id="student-name">Hannah Abbot</p>
+                <img src="assets/misc/Gryffindor_ClearBG.png" class="house-crest" alt="house" width="100px">
+                <button id="modal-btn">...</button>
+            </div>
+        </div>
+    </template> -->
+
+    <template id="info">
+        <div id="student-container" class="student-container">
+            <img src="assets/student_images/abbott_h.png" id="student-img" alt="student photo">
+            <img src="assets/misc/girl.png" class="gender-icon" alt="gender icon">
+            <p id="student-name">Hannah Aboot</p>
+            <img src="assets/misc/gryffindor.png" class="house-crest" alt="house" width="100px">
+            <button id="modal-btn"><img src="assets/misc/more.png"></button>
+        </div>
+    </template>
+
+    <div id="remove-other" class="question hide">
+        <div class="dialog">
+          <button class="close-button">X</button>
+          <h1>Warning</h1>
+          <p>There can be only 1 winner of each type. <br>
+          Do you want to remove the other winner?</p>
+          <button id="remove-other-button">Remove <span data-field="other-winner">other</span></button>
+        </div>
+      </div>
+  
+      <div id="remove-aorb" class="question hide">
+        <div class="dialog">
+          <button class="close-button">X</button>
+          <h1>Warning</h1>
+          <p>There cannot be anymore than two winners.<br>
+          Do you want to remove one of the existing winners?</p>
+          <div class="side-by-side">
+            <button id="remove-a">Remove <span data-field="winnerA">A</span></button>
+            <button id="remove-b">Remove <span data-field="winnerB">B</span></button>
+          </div>
+        </div>
+      </div>
+
+</body>
+
+<script src="script.js"></script>
+<script src="slideshow.js"></script>
+
+</html>

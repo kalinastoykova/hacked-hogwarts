@@ -1,0 +1,358 @@
+/* CSS CONTENT
+
+1. BLA BLA - line number mby
+2. BLA BLA
+ */
+
+ /* 1. FONTS */
+
+@font-face {
+    font-family: Lumos;
+    src: url(assets/fonts/lumos.otf);
+}
+
+@font-face {
+    font-family: Mirage Medium;
+    src: url(assets/fonts/made-mirage-medium.otf);
+}
+
+@font-face {
+    font-family: Cinzel Decorative;
+    src: url(assets/fonts/CinzelDecorative-Regular.otf);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+    margin: 0;
+    background-color: rgba(255, 232, 214, 0.4);
+    overflow-x: hidden;
+}
+
+header {
+    height: 95vh;
+}
+
+h1 {
+    font-size: 10em;
+    text-align: center;
+    font-family: Lumos;
+    color: white;
+    margin-top: 10%;
+    margin-bottom: 0;
+    letter-spacing: 3px;
+}
+
+h2 {
+    font-size: 1.4em;
+    font-family: "Cinzel Decorative";
+    color:white;
+    text-align: center;
+    margin-top: -60px;
+}
+
+h3 {
+    font-family: Mirage Medium;
+    font-weight: 800;
+    font-size: 3em;
+    text-align: center;
+    color: #242423;
+}
+
+#hogwarts-crest {
+    width: 10%;
+    margin-left: 45%;
+    margin-right: 45%;
+    filter: grayscale(25%);
+    opacity: .9;
+}
+
+#filter-container {
+    margin: 0 10%;
+}
+
+img.filter {
+    width: 50px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: .2s;
+}
+
+img.small {
+    width: 35px;
+}
+
+img.filter:hover {
+    opacity: 0.8;
+    transform: scale(1.15);
+    transition: .2s;
+}
+
+
+/*SLIDESHOW*/
+.mySlides {
+    display: none;
+    width: 100vw;
+    height: 95vh;
+    object-fit: cover;
+    -moz-object-fit: cover;
+}
+
+.slideContainer {
+    max-width: 100%;
+    top: 0;
+    position: absolute;
+    margin: auto;
+    z-index: -1;
+}
+
+/* dropdown menu w3c */
+ul {
+    background-color: hsla(0, 0%, 0%, .7);
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    font-family: "Mirage";
+}
+
+li a, .dropbtn {
+    padding: 15px 2em;
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    transition: .4s;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color:  rgba(255, 255, 255, 0.1);
+    text-align: left;
+    transition: .4s;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: .5em 1.6em;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+  
+.dropdown-content a:hover {
+    background-color:rgba(128, 34, 34, 0.3);
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+span {
+    font-size: 3.75rem;
+    position: absolute;
+    right: 2%;
+    top: 3%;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: blanchedalmond;
+    display: flex;
+    margin: 15% auto;
+    padding: 2em;
+    width: 550px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.left-modal {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-modal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#house-crest-modal {
+    height: 60px;
+    width: 60px;
+    padding: 10px;
+}
+
+h4 {
+    font-size: 2em;
+    font-family: Mirage Medium;
+    margin: 0;
+}
+
+.student-info {
+    display: flex;
+    align-items: baseline;
+}
+
+#gender {
+    height: 1.2em;
+    margin-left: 5px;
+}
+
+.modal-content p {
+    font-family: Montserrat, sans-serif;
+    font-size: 1.2em;
+    margin: 0 0 15%;
+}
+
+.modal-content button {
+    width: 150px;
+    padding: 2%;
+    margin: 4px;
+    font-family: Montserrat;
+    font-size: .95em;
+    color: white;
+    border: none;
+    transition: .4s;
+}
+
+.modal-content button:hover {
+    cursor: pointer;
+    box-shadow: 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition: .4s;
+}
+
+#expel {
+    background-color: #901414;
+}
+
+#prefect {
+    background-color: #caa810;
+}
+
+#squad {
+    background-color: #326e1a;
+}
+
+/* student container */
+#students-here {
+    display: grid;
+    grid-area: 2fr 1fr 4fr 2fr;
+    margin: 0 10%;
+    align-content: space-around;
+    background-color: #eddcd2;
+}
+
+/* student template */
+.student-container {
+    display: flex;
+    justify-content: space-around;
+    justify-self: center;
+    align-items: center;
+    background-color: #fff1e6;
+    width: 90%;
+    height: 100px;
+    margin: 10px;
+    padding: 15px;
+    font-family: Montserrat;
+}
+
+.gender-icon {
+    width: 30px;
+    height: 30px;
+    align-self: center;
+}
+
+.house-crest {
+    height: 70px;
+    width: 60px;
+}
+
+#modal-btn {
+    border: none;
+    background: none;
+}
+
+#modal-btn img {
+    height: 40px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+#modal-btn img:hover {
+    transform: scale(1.1);
+    transition: .1s;
+}
+
+#student-img {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border: 3px solid #cfbdb3;
+    border-radius: 230px;
+}
+
+.question {
+    z-index: 200;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.dialog {
+    box-shadow: 1px 1px 18px #333;
+    padding: 1em;
+    background-color: #eee;
+    position: relative;
+}
+
+.hide {
+    display: none;
+}
+
+.disabled {
+    pointer-events: none;
+    filter: grayscale(1);
+}
+
+#expelled-toggle {
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
