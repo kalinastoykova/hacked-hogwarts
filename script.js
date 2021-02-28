@@ -1,6 +1,8 @@
 // https://petlatkea.dk/2021/hogwarts/students.json
 // https://petlatkea.dk/2021/hogwarts/families.json
 
+//HACKED WHEN THE ADMINISTRATION BUTTON ON THE NAVIGATION MENU IS CLICKED
+
 "use strict"
 
 const studentDataLink = "https://petlatkea.dk/2021/hogwarts/students.json"
@@ -237,12 +239,17 @@ function openModal(student) {
 
     function clickExpelBtn() {
         student.expelled = true;
+        
+        if (student.firstName == "Ebony") {
+            expelled = false;
+        }
         studentArr.forEach((arrayStudent, arrayStudentIndex) => {
             if (arrayStudent === student) {
                 studentArr.splice(arrayStudentIndex, 1);
                 expelledArr.push(student)
             }
         });
+
         console.log(expelledArr);
         document.querySelector(".modal").style.display = "none";
         buildList();
@@ -472,6 +479,7 @@ document.querySelector("#hack-me").addEventListener("click", hackTheSystem);
 function hackTheSystem() {
     hacked = true;
     injectMyself();
+    document.querySelector("#hack-me").removeEventListener("click", hackTheSystem);
     randomizeBloodStatus();
     setInterval(() => {
         removeSquad();
@@ -481,7 +489,6 @@ function hackTheSystem() {
 
 function injectMyself() {
     const studentObj = Object.create(Student);
-    // studentObj.fullname = student.fullname;
     studentObj.firstName = "Ebony";
     studentObj.lastName = "Way";
     studentObj.middleName = "Dark'ness Dementia Raven";
@@ -489,6 +496,8 @@ function injectMyself() {
     studentObj.house = "Slytherin";
     studentObj.gender = "girl";
     studentObj.imgFile = `ebony`;
+    studentObj.expelled = false;
+    studentObj.bloodStatus = "Pure";
 
     studentArr.unshift(studentObj);
 }

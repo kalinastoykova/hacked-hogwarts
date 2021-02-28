@@ -41,7 +41,7 @@
     <main>
         <h3>Student List, class of 1991</h3>
 
-        <div class="filters-container">
+        <div class="all-container">
             <div id="filter-container">
                 <img src="assets/misc/gryffindor.png" class="filter" data-action="filter" data-filter="gryff">
                 <img src="assets/misc/hufflepuff.png" class="filter" data-action="filter" data-filter="huffle">
@@ -52,63 +52,50 @@
                 <img src="assets/misc/boy.png" class="filter small" data-action="filter" data-filter="male">
                 <img src="assets/misc/asterisk.png" class="filter small" data-action="filter" data-filter="*">
             </div>
+
             <div id="sort-container">
                 <button class="sort" data-action="sort" data-sort-direction="asc" data-sort="firstName">First name</button>
                 <button class="sort" data-action="sort" data-sort-direction="asc" data-sort="lastName">Last name</button>
             </div>
 
-            <input type="text" id="search-input" placeholder="Search name">
-
             <p id="expelled-toggle">Expelled Students</p>
-    </div>
-        <section id="students-here">
-        </section>
+            <input type="text" id="search-input" placeholder="Search name">
+        </div>
 
-        <div class="modal">
-            <div class="modal-content">
-                <p><span class="close-btn">&times;</span></p>
-                <div class="left-modal">
-                    <img src="assets/student_images/abbott_h.png" id="student-img-modal" alt="girl">
-                    <img src="assets/misc/Gryffindor_ClearBG.png" class="house-crest" alt="house" width="100px">
+    <section id="students-here">
+    </section>
+
+    <div class="modal">
+        <div class="modal-content">
+            <p><span class="close-btn">&times;</span></p>
+            <div class="left-modal">
+                <img src="assets/student_images/abbott_h.png" id="student-img-modal" alt="girl">
+                <img src="assets/misc/Gryffindor_ClearBG.png" class="house-crest" alt="house" width="100px">
+            </div>
+            <div class="right-modal">
+                <h4 id="student-name-modal">Student name</h4>
+                <div class="student-info">
+                    <p id="blood-info">Pure-blood</p>
+                    <img src="https://img.icons8.com/color/48/000000/female.png" id="gender"> <br>
                 </div>
-                <div class="right-modal">
-                    <h4 id="student-name-modal">Student name</h4>
-                    <div class="student-info">
-                        <p id="blood-info">Pure-blood</p>
-                        <img src="https://img.icons8.com/color/48/000000/female.png" id="gender"> <br>
-                    </div>
-                    <div class="member-icons">
-                        <img src="assets/misc/squad.png" alt="squad icon" id="squad-icon" class="hide">
-                        <img src="assets/misc/prefect.png" alt="prefect icon" id="prefect-icon" class="hide">
-                    </div>
-                    
+                <div class="member-icons">
+                    <img src="assets/misc/squad.png" alt="squad icon" id="squad-icon" class="hide">
+                    <img src="assets/misc/prefect.png" alt="prefect icon" id="prefect-icon" class="hide">
+                </div>
+                
 
-                    <button id="expel">Expel student</button>
-                    <button id="prefect">Make prefect</button>
-                    <button id="squad">Add to squad</button>
-                 </div>
+                <button id="expel">Expel student</button>
+                <button id="prefect">Make prefect</button>
+                <button id="squad">Add to squad</button>
             </div>
         </div>
+    </div>
 
     </main>
 
-    <!-- templates -->
-    <!-- <template id="info">
-        <div id="student-container">
-            <div class="left">
-                <img src="assets/student_images/abbott_h.png" id="student-img" alt="student">
-            </div>
-            <div class="right">
-                <p id="student-name">Hannah Abbot</p>
-                <img src="assets/misc/Gryffindor_ClearBG.png" class="house-crest" alt="house" width="100px">
-                <button id="modal-btn">...</button>
-            </div>
-        </div>
-    </template> -->
-
     <template id="info">
         <div id="student-container" class="student-container">
-            <img src="assets/student_images/abbott_h.png" id="student-img" alt="student photo">
+            <img src="assets/student_images/abbott_h.png" id="student-img" class="student-img-temp" alt="student photo">
             <img src="assets/misc/girl.png" class="gender-icon" alt="gender icon">
             <p id="student-name">Hannah Aboot</p>
             <img src="assets/misc/gryffindor.png" class="house-crest" alt="house" width="100px">
